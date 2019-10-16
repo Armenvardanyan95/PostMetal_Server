@@ -54,3 +54,11 @@ export class AlbumDto {
     @ApiModelProperty()
     artist: number;
 }
+
+export class LoginDto {
+    @ApiModelProperty()
+    email: string;
+
+    @ApiModelProperty()
+    password: string;
+}

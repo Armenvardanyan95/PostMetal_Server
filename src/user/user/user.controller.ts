@@ -1,4 +1,4 @@
-import { Controller, HttpException, HttpStatus } from '@nestjs/common';
+import { Controller, HttpException, HttpStatus, Post, Body } from '@nestjs/common';
 import { Crud, CrudController, Override, ParsedRequest, ParsedBody, CrudRequest } from '@nestjsx/crud';
 
 import { UserService } from './user.service';
@@ -14,14 +14,16 @@ import { UserDto } from '../../infrastructure/dto';
 })
 @Controller('user')
 export class UserController implements CrudController<UserDto> {
-    constructor(public readonly service: UserService) {}
+    constructor(
+        public readonly service: UserService,
+    ) {}
 
     get base(): CrudController<UserDto> {
         return this;
     }
 
     @Override()
-    createOne(
+    async createOne(
         @ParsedRequest() req: CrudRequest,
         @ParsedBody() userDto: UserDto,
     ) {
@@ -30,4 +32,5 @@ export class UserController implements CrudController<UserDto> {
         }
         return this.base.createOneBase(req, userDto);
     }
+
 }

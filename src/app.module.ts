@@ -5,6 +5,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { UserModule } from './user/user.module';
 import { ArtistModule } from './artist/artist.module';
 import { AlbumModule } from './album/album.module';
+import { AuthModule } from './auth/auth.module';
 
 
 @Module({
@@ -22,6 +23,7 @@ import { AlbumModule } from './album/album.module';
     UserModule,
     ArtistModule,
     AlbumModule,
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService],
